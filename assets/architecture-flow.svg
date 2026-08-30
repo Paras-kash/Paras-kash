@@ -1,0 +1,63 @@
+<svg width="100%" height="280" viewBox="0 0 960 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thread Flow architecture diagram">
+  <defs>
+    <filter id="nodeGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="nodeFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#010409"/>
+    </linearGradient>
+    <style>
+      .node-rect { fill: url(#nodeFill); stroke: #58a6ff; stroke-width: 1.4; filter: url(#nodeGlow); }
+      .label { font-family: 'Courier New', monospace; fill: #e6edf3; font-size: 13px; letter-spacing: 1px; }
+      .sub   { font-family: 'Courier New', monospace; fill: #8b949e; font-size: 10px; }
+      .flow  { stroke: #58a6ff; stroke-width: 2; fill: none; stroke-dasharray: 6 8; filter: url(#nodeGlow); }
+      @keyframes dash { to { stroke-dashoffset: -140; } }
+      .flow { animation: dash 2.4s linear infinite; }
+      @keyframes pulse {
+        0%, 100% { r: 4; opacity: .9; }
+        50% { r: 7; opacity: .35; }
+      }
+      .pulse { animation: pulse 1.8s ease-in-out infinite; fill: #58a6ff; }
+      @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+      .bob { animation: bob 3s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <rect width="960" height="280" fill="#000000"/>
+
+  <!-- Node 1: Offline Cache -->
+  <g class="bob">
+    <rect class="node-rect" x="30" y="100" width="230" height="90" rx="10"/>
+    <text x="145" y="138" text-anchor="middle" class="label">OFFLINE&#160;CACHE</text>
+    <text x="145" y="158" text-anchor="middle" class="sub">Hive&#160;/&#160;Local&#160;DB&#160;Layer</text>
+    <circle class="pulse" cx="50" cy="118" r="4"/>
+  </g>
+
+  <!-- Node 2: Firestore Sync -->
+  <g class="bob" style="animation-delay:.6s">
+    <rect class="node-rect" x="365" y="100" width="230" height="90" rx="10"/>
+    <text x="480" y="138" text-anchor="middle" class="label">FIRESTORE&#160;SYNC</text>
+    <text x="480" y="158" text-anchor="middle" class="sub">Realtime&#160;+&#160;Cloud&#160;Functions</text>
+    <circle class="pulse" cx="385" cy="118" r="4" style="animation-delay:.4s"/>
+  </g>
+
+  <!-- Node 3: WhatsApp Engine -->
+  <g class="bob" style="animation-delay:1.2s">
+    <rect class="node-rect" x="700" y="100" width="230" height="90" rx="10"/>
+    <text x="815" y="138" text-anchor="middle" class="label">WHATSAPP&#160;ENGINE</text>
+    <text x="815" y="158" text-anchor="middle" class="sub">Order&#160;&amp;&#160;Delivery&#160;Alerts</text>
+    <circle class="pulse" cx="720" cy="118" r="4" style="animation-delay:.8s"/>
+  </g>
+
+  <!-- Flow lines -->
+  <path class="flow" d="M260 145 H365"/>
+  <path class="flow" d="M595 145 H700"/>
+
+  <!-- Arrowheads -->
+  <path d="M358 139 L370 145 L358 151 Z" fill="#58a6ff"/>
+  <path d="M693 139 L705 145 L693 151 Z" fill="#58a6ff"/>
+
+  <text x="480" y="230" text-anchor="middle" class="sub" font-size="11">Boutique&#160;device&#160;works&#160;fully&#160;offline&#160;&#8594;&#160;syncs&#160;when&#160;online&#160;&#8594;&#160;auto-notifies&#160;the&#160;customer</text>
+</svg>
