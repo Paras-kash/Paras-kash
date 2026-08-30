@@ -86,7 +86,7 @@ Building on Flutter, thinking in Riverpod, syncing through Firestore.
 </div>
 
 <p align="center">
-  <a href="https://linkedin.com/in/paras-kash"><img src="https://img.shields.io/badge/LinkedIn-000000?style=flat-square&logo=linkedin&logoColor=58A6FF&labelColor=0d1117"/></a>
+  <a href="https://linkedin.com/in/paras-kashyap"><img src="https://img.shields.io/badge/LinkedIn-000000?style=flat-square&logo=linkedin&logoColor=58A6FF&labelColor=0d1117"/></a>
   <a href="https://threadflow.in"><img src="https://img.shields.io/badge/threadflow.in-000000?style=flat-square&logo=googlechrome&logoColor=58A6FF&labelColor=0d1117"/></a>
 </p>
 

@@ -4,7 +4,26 @@
       <feGaussianBlur stdDeviation="1.6" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <radialGradient id="meshCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshSilver" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9d1d9" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c9d1d9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshDeep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="canvasClip"><rect x="0" y="0" width="640" height="170"/></clipPath>
     <style>
+      @keyframes driftA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,-20px); } }
+      @keyframes driftB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-35px,18px); } }
+      @keyframes driftC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(25px,22px); } }
+      .meshA { animation: driftA 11s ease-in-out infinite; }
+      .meshB { animation: driftB 14s ease-in-out infinite; }
+      .meshC { animation: driftC 17s ease-in-out infinite; }
       .win   { fill: #0d1117; stroke: #30363d; stroke-width: 1; }
       .dot   { fill: #30363d; }
       .mono  { font-family: 'Courier New', monospace; font-size: 15px; }
@@ -27,6 +46,11 @@
   </defs>
 
   <rect width="640" height="170" fill="#000000"/>
+  <g clip-path="url(#canvasClip)">
+    <ellipse class="meshA" cx="120" cy="30" rx="220" ry="130" fill="url(#meshCyan)"/>
+    <ellipse class="meshB" cx="520" cy="140" rx="230" ry="140" fill="url(#meshSilver)"/>
+    <ellipse class="meshC" cx="340" cy="90" rx="260" ry="150" fill="url(#meshDeep)"/>
+  </g>
   <rect class="win" x="20" y="15" width="600" height="140" rx="10"/>
   <circle class="dot" cx="42" cy="35" r="4"/>
   <circle class="dot" cx="58" cy="35" r="4"/>

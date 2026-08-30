@@ -8,7 +8,26 @@
       <stop offset="0%" stop-color="#0d1117"/>
       <stop offset="100%" stop-color="#010409"/>
     </linearGradient>
+    <radialGradient id="meshCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshSilver" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9d1d9" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#c9d1d9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshDeep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="canvasClip"><rect x="0" y="0" width="960" height="280"/></clipPath>
     <style>
+      @keyframes driftA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(50px,-25px); } }
+      @keyframes driftB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-45px,20px); } }
+      @keyframes driftC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,30px); } }
+      .meshA { animation: driftA 11s ease-in-out infinite; }
+      .meshB { animation: driftB 14s ease-in-out infinite; }
+      .meshC { animation: driftC 17s ease-in-out infinite; }
       .node-rect { fill: url(#nodeFill); stroke: #58a6ff; stroke-width: 1.4; filter: url(#nodeGlow); }
       .label { font-family: 'Courier New', monospace; fill: #e6edf3; font-size: 13px; letter-spacing: 1px; }
       .sub   { font-family: 'Courier New', monospace; fill: #8b949e; font-size: 10px; }
@@ -26,6 +45,12 @@
   </defs>
 
   <rect width="960" height="280" fill="#000000"/>
+
+  <g clip-path="url(#canvasClip)">
+    <ellipse class="meshA" cx="180" cy="70" rx="280" ry="180" fill="url(#meshCyan)"/>
+    <ellipse class="meshB" cx="780" cy="210" rx="300" ry="190" fill="url(#meshSilver)"/>
+    <ellipse class="meshC" cx="480" cy="150" rx="320" ry="200" fill="url(#meshDeep)"/>
+  </g>
 
   <!-- Node 1: Offline Cache -->
   <g class="bob">

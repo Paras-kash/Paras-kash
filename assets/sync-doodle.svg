@@ -4,7 +4,26 @@
       <feGaussianBlur stdDeviation="2.4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <radialGradient id="meshCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshSilver" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9d1d9" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c9d1d9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshDeep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="canvasClip"><rect x="0" y="0" width="170" height="170"/></clipPath>
     <style>
+      @keyframes driftA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(20px,-14px); } }
+      @keyframes driftB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-18px,12px); } }
+      @keyframes driftC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(14px,16px); } }
+      .meshA { animation: driftA 11s ease-in-out infinite; }
+      .meshB { animation: driftB 14s ease-in-out infinite; }
+      .meshC { animation: driftC 17s ease-in-out infinite; }
       .cloud   { fill: #0d1117; stroke: #c9d1d9; stroke-width: 1.6; }
       .arrow   { stroke: #58a6ff; stroke-width: 2; fill: none; filter: url(#g2); }
       @keyframes spin { to { transform: rotate(360deg); } }
@@ -23,6 +42,12 @@
   </defs>
 
   <rect width="170" height="170" fill="#000000"/>
+
+  <g clip-path="url(#canvasClip)">
+    <ellipse class="meshA" cx="45" cy="40" rx="90" ry="70" fill="url(#meshCyan)"/>
+    <ellipse class="meshB" cx="130" cy="120" rx="95" ry="75" fill="url(#meshSilver)"/>
+    <ellipse class="meshC" cx="90" cy="90" rx="100" ry="80" fill="url(#meshDeep)"/>
+  </g>
 
   <!-- cloud -->
   <path class="cloud" d="M50 65 a16 16 0 0 1 30-8 a20 20 0 0 1 38 6 a14 14 0 0 1-2 27 h-58 a15 15 0 0 1-8-25 Z"/>

@@ -22,8 +22,27 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <radialGradient id="meshCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshSilver" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9d1d9" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#c9d1d9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshDeep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="canvasClip"><rect x="0" y="0" width="1200" height="220"/></clipPath>
     <style>
       .stream { filter: url(#glow); }
+      @keyframes driftA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(60px,-30px); } }
+      @keyframes driftB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-50px,25px); } }
+      @keyframes driftC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(35px,35px); } }
+      .meshA { animation: driftA 11s ease-in-out infinite; }
+      .meshB { animation: driftB 14s ease-in-out infinite; }
+      .meshC { animation: driftC 17s ease-in-out infinite; }
       @keyframes fall {
         0%   { transform: translateY(-220px); opacity: 0; }
         10%  { opacity: 1; }
@@ -59,6 +78,12 @@
   </defs>
 
   <rect width="1200" height="220" fill="url(#bgGrad)"/>
+
+  <g clip-path="url(#canvasClip)">
+    <ellipse class="meshA" cx="220" cy="60" rx="320" ry="220" fill="url(#meshCyan)"/>
+    <ellipse class="meshB" cx="950" cy="170" rx="340" ry="240" fill="url(#meshSilver)"/>
+    <ellipse class="meshC" cx="620" cy="260" rx="380" ry="260" fill="url(#meshDeep)"/>
+  </g>
 
   <g class="stream">
     <rect class="s1"  x="40"   y="0" width="2" height="70" fill="url(#dropGrad)"/>
