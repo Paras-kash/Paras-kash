@@ -1,10 +1,4 @@
-<div align="center">
 
-# Paras Kashyap
-
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" alt="Dark Waterfall Banner" width="100%" />
-</p>
 
 [![Status: Building](https://img.shields.io/badge/Status-Shipping%20Thread%20Flow-000000?style=for-the-badge&logoColor=white&color=0d1117)](https://threadflow.in)
 [![Stack](https://img.shields.io/badge/Stack-Flutter%20%7C%20Dart%20%7C%20Firebase-000000?style=for-the-badge&logoColor=white&color=0d1117)](#)
