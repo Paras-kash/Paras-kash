@@ -1,0 +1,38 @@
+<svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated thread and needle doodle">
+  <defs>
+    <filter id="g1" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .thread { stroke: #58a6ff; stroke-width: 2; fill: none; stroke-dasharray: 8 6; filter: url(#g1); }
+      @keyframes stitch { to { stroke-dashoffset: -140; } }
+      .thread { animation: stitch 2.6s linear infinite; }
+      .spool  { fill: #0d1117; stroke: #c9d1d9; stroke-width: 1.5; }
+      .cap    { fill: #161b22; stroke: #58a6ff; stroke-width: 1.5; }
+      @keyframes sew { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(10px) rotate(-6deg); } }
+      .needle { animation: sew 1.6s ease-in-out infinite; transform-origin: 128px 40px; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .spinwrap { animation: spin 9s linear infinite; transform-origin: 55px 95px; }
+    </style>
+  </defs>
+
+  <rect width="170" height="170" fill="#000000"/>
+
+  <!-- spool of thread -->
+  <g class="spinwrap">
+    <rect class="cap" x="35" y="60" width="40" height="10" rx="3"/>
+    <rect class="spool" x="40" y="70" width="30" height="50" rx="4"/>
+    <rect class="cap" x="35" y="120" width="40" height="10" rx="3"/>
+    <path d="M42 78 L68 84 M42 90 L68 96 M42 102 L68 108 M42 112 L68 118" stroke="#58a6ff" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- stitching thread path -->
+  <path class="thread" d="M70 95 C95 60 100 140 128 45"/>
+
+  <!-- needle -->
+  <g class="needle">
+    <line x1="122" y1="20" x2="134" y2="60" stroke="#e6edf3" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="123.5" cy="24" rx="2.4" ry="4" fill="none" stroke="#e6edf3" stroke-width="1.4"/>
+  </g>
+</svg>

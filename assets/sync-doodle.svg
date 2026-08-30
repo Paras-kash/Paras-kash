@@ -1,0 +1,46 @@
+<svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated offline sync cloud doodle">
+  <defs>
+    <filter id="g2" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .cloud   { fill: #0d1117; stroke: #c9d1d9; stroke-width: 1.6; }
+      .arrow   { stroke: #58a6ff; stroke-width: 2; fill: none; filter: url(#g2); }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .orbit   { animation: spin 3.2s linear infinite; transform-origin: 85px 55px; }
+      .device  { fill: #161b22; stroke: #8b949e; stroke-width: 1.4; }
+      @keyframes pulseUp {
+        0%   { opacity: 0; transform: translateY(0); }
+        30%  { opacity: 1; }
+        60%  { opacity: 1; transform: translateY(-26px); }
+        100% { opacity: 0; transform: translateY(-30px); }
+      }
+      .bit { animation: pulseUp 2.4s ease-in-out infinite; fill: #58a6ff; }
+      @keyframes flicker { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+      .dot { animation: flicker 2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <rect width="170" height="170" fill="#000000"/>
+
+  <!-- cloud -->
+  <path class="cloud" d="M50 65 a16 16 0 0 1 30-8 a20 20 0 0 1 38 6 a14 14 0 0 1-2 27 h-58 a15 15 0 0 1-8-25 Z"/>
+
+  <!-- orbiting sync arrows -->
+  <g class="orbit">
+    <path class="arrow" d="M85 40 A15 15 0 1 1 71 55" marker-end="url(#none)"/>
+    <path d="M69 50 L71 58 L79 55 Z" fill="#58a6ff"/>
+    <path class="arrow" d="M85 70 A15 15 0 1 1 99 55"/>
+    <path d="M101 60 L99 52 L91 55 Z" fill="#58a6ff"/>
+  </g>
+
+  <!-- device -->
+  <rect class="device" x="70" y="115" width="30" height="45" rx="5"/>
+  <circle class="dot" cx="85" cy="150" r="1.6" fill="#58a6ff"/>
+
+  <!-- data bits travelling device -> cloud -->
+  <circle class="bit" cx="80" cy="112" r="2.2" style="animation-delay:0s"/>
+  <circle class="bit" cx="90" cy="112" r="2.2" style="animation-delay:.8s"/>
+  <circle class="bit" cx="85" cy="112" r="2.2" style="animation-delay:1.6s"/>
+</svg>
